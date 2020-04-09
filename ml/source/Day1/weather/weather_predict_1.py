@@ -1,3 +1,6 @@
+#Linear Regression 날씨 맞추기. 
+#머신러닝 라이브러리 싸이킷런
+
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 import numpy as np
@@ -9,15 +12,16 @@ df = pd.read_csv('../dataset/temp10years.csv', encoding="utf-8")
 # 데이터를 학습 전용과 테스트 전용으로 분리하기 ---(*1)
 train_year = (df["연"] <= 2015)
 test_year = (df["연"] >= 2016)
+# 오늘 4월 1일 과거 6일 데이터 평균낸 것. 
 interval = 6
 
 # 과거 6일의 데이터를 기반으로 학습할 데이터 만들기 ---(*2)
 def make_data(data):
     x = [] # 학습 데이터
-    y = [] # 결과
+    y = [] # 가설에 의한 결과
     temps = list(data["기온"])
     for i in range(len(temps)):
-        if i < interval: continue
+        if i < interval : continue
         y.append(temps[i])
         xa = []
         for p in range(interval):

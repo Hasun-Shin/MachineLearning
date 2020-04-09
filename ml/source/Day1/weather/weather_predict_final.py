@@ -31,14 +31,16 @@ train_x, train_y = make_data(df[train_year])
 test_x, test_y = make_data(df[test_year])
 
 # 직선 회귀 분석하기 ---(*4)
+#싸이킷 런의 알고리즘 LinearRegression
+
 lr = LinearRegression(normalize=True)
-lr.fit(train_x, train_y) # 학습하기
+lr.fit(train_x, train_y) # 학습하기. 학습할 데이터, 학습했을때의 정답 데이터 . 쫌 오래 걸림. 
 pre_y = lr.predict(test_x) # 예측하기
 
 # 결과를 그래프로 그리기 ---(*5)
 plt.figure(figsize=(10, 6), dpi=100)
-plt.plot(test_y, c='r')
-plt.plot(pre_y, c='b')
+plt.plot(test_y, c='r') #빨간색 정답데이터 
+plt.plot(pre_y, c='b') #파란색이 예측데이터 
 plt.savefig('weather-temp-lr.png')
 plt.show()
 

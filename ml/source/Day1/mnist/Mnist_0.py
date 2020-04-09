@@ -3,11 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt # pip install matplotlib
 
 # print(os.getcwd())
-data_file = open("../dataset/mnist_train_100.csv", "r")
+data_file = open("../dataset/mnist_test_10.csv", "r")
 data_list = data_file.readlines()
 data_file.close()
 
-all_values = data_list[1].split(',')
+all_values = data_list[2].split(',')
 # float 데이터 형태를 원소로 가지는 배열을 만들고 싶을 때는 np.asfarray() 함수를 사용
 image_array = np.asfarray(all_values[1:]).reshape((28,28))
 plt.imshow(image_array, cmap='Greys', interpolation='None')
