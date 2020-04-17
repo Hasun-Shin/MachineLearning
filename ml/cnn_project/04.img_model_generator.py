@@ -79,7 +79,7 @@ def main():
 
     num_classes = 2
     batch_size = 32
-    epochs = 30
+    epochs = 10
 
     # 학습용 이미지 파일 읽기
     train_file_list = load_images(TRAIN_IMAGE_DIR)
@@ -120,23 +120,23 @@ def main():
     #same 은 원본 크기 보존 ~ 
     
     #CNN -1
-    model.add(Conv2D(input_shape=(64,64,3),filters=32, kernel_size=(3,3), padding='same', strides=(1,1), activation='sigmoid'))
+    model.add(Conv2D(input_shape=(64,64,3),filters=32, kernel_size=(3,3), padding='same', strides=(1,1), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
     
     #CNN-2
-    model.add(Conv2D(input_shape=(32,32,3),filters=32, kernel_size=(3,3), padding='same', strides=(1,1), activation='sigmoid'))
+    model.add(Conv2D(input_shape=(32,32,3),filters=32, kernel_size=(3,3), padding='same', strides=(1,1), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
     model.add(Dropout(0.01))
 
     #CNN-3
-    model.add(Conv2D(input_shape=(16,16,3),filters=64, kernel_size=(3,3), padding='same', strides=(1,1), activation='sigmoid'))
+    model.add(Conv2D(input_shape=(16,16,3),filters=64, kernel_size=(3,3), padding='same', strides=(1,1), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2,2)))
     model.add(Dropout(0.05))
     
     # Flatten() + Dense
     model.add(Flatten())
-    model.add(Dense(512, activation='sigmoid'))
-    model.add(Dense(128, activation='sigmoid')) 
+    model.add(Dense(512, activation='relu'))
+    model.add(Dense(128, activation='relu')) 
     model.add(Dense(num_classes, activation='softmax'))
 
     model.summary()
@@ -144,13 +144,50 @@ def main():
     # Compile
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-    plot_file_path = os.path.join(OUTPUT_MODEL_DIR, OUTPUT_MODEL_FILE)
-    plot_model(model, to_file=plot_file_path, show_shapes=True)
+    # plot_file_path = os.path.join(OUTPUT_MODEL_DIR, OUTPUT_MODEL_FILE)
+    # plot_model(model, to_file=plot_file_path, show_shapes=True)
+
+    if OUTPUT_MODEL_ONLY:
+
+        #학습
+        model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs)
+
+    else : 
+        #학습 + 그래프
+        result =model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs,verbose=1, validation_data = (x_test, y_test))
+        test_acc, test_loss = model.evaluate(x_test, y_test, batch_size=batch_size, verbose=0)
+        print(f"validation loss:{test_loss}")
+        print(f"validation accuracy:{test_acc}")
 
 
-    # 모델 시각화
+        #acc(정확)그래프 
+        plt.plot(result.history["accuracy"], label="accuracy", ls="-", marker="o")
+        plt.plot(result.history["val_accuracy"], label="val_accuracy", ls="-", marker="x")
 
-    # 학습
+        plt.title("model accuracy")
+        plt.xlabel("Epoch")
+
+        plt.ylabel("Accuracy")
+        plt.legend(loc="best")
+        plt.show()
+
+
+        # 손실 그래프 
+        plt.plot(result.history["loss"], label="loss", ls="-", marker="o")
+        plt.plot(result.history["val_loss"], label="val_loss", ls="-", marker="x")
+
+        plt.title("model loss")
+        plt.xlabel("Epoch")
+
+        plt.ylabel("loss")
+        plt.legend(loc="best")
+        plt.show()
+
+
+
+
+
+
     
     # 모델 저장
     model_file_path = os.path.join(OUTPUT_MODEL_DIR, OUTPUT_MODEL_FILE)
