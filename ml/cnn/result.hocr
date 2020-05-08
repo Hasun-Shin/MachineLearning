@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ <head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <meta name='ocr-system' content='tesseract v5.0.0-alpha.20200328' />
+  <meta name='ocr-capabilities' content='ocr_page ocr_carea ocr_par ocr_line ocrx_word ocrp_wconf'/>
+ </head>
+ <body>
+  <div class='ocr_page' id='page_1' title='image "ori.jpg"; bbox 0 0 4032 1908; ppageno 0'>
+   <div class='ocr_carea' id='block_1_1' title="bbox 1413 1154 1456 1376">
+    <p class='ocr_par' id='par_1_1' lang='eng' title="bbox 1413 1154 1456 1376">
+     <span class='ocr_caption' id='line_1_1' title="bbox 1414 1154 1456 1193; baseline -0.071 0; x_size 71; x_descenders 17; x_ascenders 18">
+      <span class='ocrx_word' id='word_1_1' title='bbox 1414 1154 1456 1193; x_wconf 45'>fil</span>
+     </span>
+     <span class='ocr_caption' id='line_1_2' title="bbox 1413 1199 1455 1238; baseline -0.095 0; x_size 71; x_descenders 17; x_ascenders 18">
+      <span class='ocrx_word' id='word_1_2' title='bbox 1413 1199 1455 1238; x_wconf 48'>Fil</span>
+     </span>
+     <span class='ocr_caption' id='line_1_3' title="bbox 1413 1255 1456 1306; baseline 0 -16; x_size 71; x_descenders 17; x_ascenders 18">
+      <span class='ocrx_word' id='word_1_3' title='bbox 1413 1255 1456 1306; x_wconf 67'>a</span>
+     </span>
+     <span class='ocr_caption' id='line_1_4' title="bbox 1414 1311 1455 1334; baseline 0 0; x_size 30.24074; x_descenders 7.2407403; x_ascenders 7.666667">
+      <span class='ocrx_word' id='word_1_4' title='bbox 1414 1311 1455 1334; x_wconf 62'>ru</span>
+     </span>
+     <span class='ocr_caption' id='line_1_5' title="bbox 1416 1339 1456 1376; baseline 0 -3; x_size 71; x_descenders 17; x_ascenders 18">
+      <span class='ocrx_word' id='word_1_5' title='bbox 1416 1339 1456 1376; x_wconf 41'>oO</span>
+     </span>
+    </p>
+   </div>
+   <div class='ocr_carea' id='block_1_2' title="bbox 0 0 4032 1908">
+    <p class='ocr_par' id='par_1_2' lang='eng' title="bbox 0 0 4032 1908">
+     <span class='ocr_line' id='line_1_6' title="bbox 0 0 4032 1908; baseline 0 0; x_size 954; x_descenders -477; x_ascenders 477">
+      <span class='ocrx_word' id='word_1_6' title='bbox 0 0 4032 1908; x_wconf 95'> </span>
+     </span>
+    </p>
+   </div>
+  </div>
+ </body>
+</html>
